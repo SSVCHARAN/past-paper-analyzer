@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Past Paper Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 Past Paper Analyzer</h1>
+
+        <section class="upload-section">
+            <h2>Step 1: Upload Past Papers</h2>
+            <input type="file" id="pdfInput" multiple accept=".pdf">
+            <button onclick="uploadPaper()">Upload & Analyze</button>
+        </section>
+
+        <div id="loading" style="display:none;">⏳ Analyzing...</div>
+
+        <section id="resultsSection" style="display:none;">
+            <h2>Step 2: Topic Analysis</h2>
+            <canvas id="topicChart"></canvas>
+
+            <div class="topic-list">
+                <h3>Topics by Frequency:</h3>
+                <ul id="topicsList"></ul>
+            </div>
+        </section>
+
+        <section id="studyPlanSection" style="display:none;">
+            <h2>Step 3: Your Smart Study Plan</h2>
+            <button onclick="generateStudyPlan()">Generate Study Plan</button>
+            <div id="studyPlan"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
