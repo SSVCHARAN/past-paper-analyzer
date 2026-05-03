@@ -1,39 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Past Paper Analyzer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Paper Analyzer | Smart Study Insights</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1>📚 Past Paper Analyzer</h1>
+        <header class="fade-in">
+            <h1>Past Paper Analyzer</h1>
+            <p>Upload your past papers and let AI identify recurring topics and generate a personalized study plan to ace your exams.</p>
+        </header>
 
-        <section class="upload-section">
-            <h2>Step 1: Upload Past Papers</h2>
-            <input type="file" id="pdfInput" multiple accept=".pdf">
-            <button onclick="uploadPaper()">Upload & Analyze</button>
-        </section>
+        <main class="container">
+            <!-- Step 1: Upload -->
+            <section class="glass-card fade-in" style="animation-delay: 0.1s;">
+                <h2 class="section-title"><i class="fas fa-cloud-upload-alt"></i> Step 1: Upload Papers</h2>
+                <div class="upload-zone" id="dropZone">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Drag & Drop PDF files here or click to browse</span>
+                    <small>Supports multiple PDF uploads</small>
+                    <input type="file" id="pdfInput" multiple accept=".pdf">
+                </div>
+                <div style="text-align: center; margin-top: 24px;">
+                    <button class="btn-primary" onclick="uploadPaper()" id="analyzeBtn">
+                        <i class="fas fa-magic"></i> Analyze Papers
+                    </button>
+                </div>
+            </section>
 
-        <div id="loading" style="display:none;">⏳ Analyzing...</div>
-
-        <section id="resultsSection" style="display:none;">
-            <h2>Step 2: Topic Analysis</h2>
-            <canvas id="topicChart"></canvas>
-
-            <div class="topic-list">
-                <h3>Topics by Frequency:</h3>
-                <ul id="topicsList"></ul>
+            <!-- Loading Overlay -->
+            <div id="loading" class="loading-overlay">
+                <div class="spinner"></div>
+                <p>AI is analyzing your papers...</p>
+                <small style="color: var(--text-muted); margin-top: 8px;">This may take a moment</small>
             </div>
-        </section>
 
-        <section id="studyPlanSection" style="display:none;">
-            <h2>Step 3: Your Smart Study Plan</h2>
-            <button onclick="generateStudyPlan()">Generate Study Plan</button>
-            <div id="studyPlan"></div>
-        </section>
+            <!-- Step 2: Results -->
+            <section id="resultsSection" class="glass-card fade-in" style="display:none; animation-delay: 0.2s;">
+                <h2 class="section-title"><i class="fas fa-chart-pie"></i> Step 2: Topic Insights</h2>
+                <div class="results-grid">
+                    <div class="chart-container">
+                        <canvas id="topicChart"></canvas>
+                    </div>
+                    <div class="topic-list-container">
+                        <h3>Most Frequent Topics</h3>
+                        <div id="topicsList" class="topic-list" style="margin-top: 16px;">
+                            <!-- Topics will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Study Plan -->
+            <section id="studyPlanSection" class="glass-card fade-in" style="display:none; animation-delay: 0.3s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <h2 class="section-title" style="margin-bottom: 0;"><i class="fas fa-calendar-check"></i> Step 3: Smart Study Plan</h2>
+                    <button class="btn-primary btn-secondary" onclick="generateStudyPlan()">
+                        <i class="fas fa-wand-magic-sparkles"></i> Optimize Plan
+                    </button>
+                </div>
+                <div id="studyPlan" class="study-plan-container">
+                    <!-- Study plan will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="fade-in" style="animation-delay: 0.4s;">
+            <p>&copy; 2026 Past Paper Analyzer. Built with AI for smarter learning.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Developed by <strong>SSV Charan</strong> & <strong>Chanukya</strong></p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
