@@ -11,6 +11,9 @@ from typing import List
 load_dotenv()
 
 app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Past Paper Analyzer API is running"}
 
 app.add_middleware(
     CORSMiddleware,
