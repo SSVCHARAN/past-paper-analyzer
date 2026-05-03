@@ -1,14 +1,8 @@
-# 📊 Past Paper Analyzer (Chemistry)
+# 📊 Past Paper Analyzer
 
 A FastAPI-based backend that analyzes exam papers (PDFs) and extracts **chapter-level topics**, question frequency, and difficulty distribution using AI.
 
 ---
-
-# video link :
-https://drive.google.com/file/d/1bRG_PDZ3PoueyEviCyiyESg_J-lqxhiu/view?usp=drivesdk,
-https://drive.google.com/file/d/1uNXUheXWzRDP785x84MbJiv5wSwOc0k8/view?usp=drivesdk
-
-
 
 ## 🚀 Features
 
@@ -21,17 +15,18 @@ https://drive.google.com/file/d/1uNXUheXWzRDP785x84MbJiv5wSwOc0k8/view?usp=drive
 
 ---
 
-## 🧠 Key Improvement
+## 🧠 Key Capability
 
-Unlike basic analyzers, this system:
+This system:
 
-* ❌ Avoids vague categories like *Organic / Inorganic / Physical*
-* ✅ Extracts **actual chapters** like:
+* ❌ Avoids vague categories like broad subject domains
+* ✅ Extracts **specific chapters/topics** such as:
 
   * Electrochemistry
   * Thermodynamics
-  * Chemical Kinetics
-  * Coordination Compounds
+  * Data Structures
+  * Probability
+  * Operating Systems
 
 ---
 
@@ -71,18 +66,28 @@ sudo apt install tesseract-ocr poppler-utils
 #### Windows:
 
 * Install Tesseract: https://github.com/tesseract-ocr/tesseract
-* Add to PATH
-* Install Poppler (for pdf2image)
+* Add it to PATH
+* Install Poppler (required for pdf2image)
 
 ---
 
-## 🔑 Environment Setup
+## 🔑 API Key Setup (IMPORTANT)
 
-Create a `.env` file:
+This project requires your own OpenRouter API key.
+
+### Steps:
+
+1. Go to: https://openrouter.ai
+2. Create an account
+3. Generate an API key
+
+### Then create a `.env` file in your project root:
 
 ```env
 OPENROUTER_API_KEY=your_api_key_here
 ```
+
+⚠️ Without this key, the analyzer will not work.
 
 ---
 
@@ -143,7 +148,7 @@ http://localhost:8000
     "medium": 6,
     "hard": 2
   },
-  "summary": "Paper focuses more on physical chemistry chapters."
+  "summary": "Paper focuses more on specific core chapters."
 }
 ```
 
@@ -187,17 +192,17 @@ http://localhost:8000
 
 * OCR is triggered automatically if text extraction is weak
 * Large PDFs are truncated (~6000 chars) for AI processing
-* AI output is cleaned to remove unwanted broad categories
-* Requires stable internet (OpenRouter API)
+* AI output is cleaned to remove overly broad categories
+* Requires stable internet connection
 
 ---
 
 ## 🧪 Future Improvements
 
 * Multi-paper trend analysis
-* Subject support beyond Chemistry
+* More subject support
 * Frontend dashboard (charts + insights)
-* Topic-wise prediction for upcoming exams
+* Topic prediction for upcoming exams
 
 ---
 
@@ -210,3 +215,11 @@ Built for analyzing past exam papers efficiently using AI.
 ## 📄 License
 
 Open-source (customize as needed)
+
+# video link :
+https://drive.google.com/file/d/1bRG_PDZ3PoueyEviCyiyESg_J-lqxhiu/view?usp=drivesdk,
+https://drive.google.com/file/d/1uNXUheXWzRDP785x84MbJiv5wSwOc0k8/view?usp=drivesdk
+
+
+
+
