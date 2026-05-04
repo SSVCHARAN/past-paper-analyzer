@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = "https://past-paper-analyzer-1.onrender.com";
 
 // Drag and Drop functionality
 const dropZone = document.getElementById('dropZone');
